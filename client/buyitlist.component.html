@@ -1,0 +1,23 @@
+<div>
+    <h1>ITEMS LIST</h1>
+
+    <ul>
+        <li *ngFor="let item of items">
+            {{item.name}}
+            {{item.date}}
+            {{item.comments}}
+            <button (click)="removeItem(item)">remove</button>
+            <ul>
+                <li *ngFor="let url of item.urls">
+                    {{url.price}}
+                    {{url.date}}
+                    <a [href]="url.url">Link</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <span *ngIf="errorMessage">{{errorMessage}}</span>
+
+    <router-outlet></router-outlet>
+</div>
